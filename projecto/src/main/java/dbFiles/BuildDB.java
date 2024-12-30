@@ -34,7 +34,7 @@ public class BuildDB {
                                 "\t\"Name\"\tTEXT NOT NULL,\n" + //
                                 "\t\"Description\"\tINTEGER NOT NULL,\n" + //
                                 "\t\"Total\"\tINTEGER NOT NULL,\n" + //
-                                "\t\"Category\"\tTEXT NOT NULL,\n" + //
+                                "\t\"Category\"\tTEXT ,\n" + //
                                 "\t\"Categoryexpend\"\tINTEGER NOT NULL,\n" + //
                                 "\tFOREIGN KEY(\"Categoryexpend\") REFERENCES \"INCATEGORY\"\n" + //
                                 ");";
@@ -45,7 +45,7 @@ public class BuildDB {
                                 "\t\"Name\"\tTEXT NOT NULL,\n" + //
                                 "\t\"Description\"\tINTEGER NOT NULL,\n" + //
                                 "\t\"Total\"\tINTEGER NOT NULL,\n" + //
-                                "\t\"Category\"\tTEXT NOT NULL,\n" + //
+                                "\t\"Category\"\tTEXT ,\n" + //
                                 "\t\"Categoryexpend\"\tINTEGER NOT NULL,\n" + //
                                 "\tFOREIGN KEY(\"Categoryexpend\") REFERENCES \" OUTCATEGORY\"\n" + //
                                 ");";

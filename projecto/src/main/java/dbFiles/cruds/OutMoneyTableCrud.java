@@ -1,25 +1,27 @@
 package dbFiles.cruds;
 
+import co.edu.uniquindio.poo.MoveTemplate.MoveTemplate;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.sql.SQLException;
+// im consient that i can only put one class about crud and put a var that i can change in to out, i dont wana injection sql :)
 
-import co.edu.uniquindio.poo.MoveTemplate.MoveTemplate;
+public class OutMoneyTableCrud {
 
-public class InMoneyTableCrud {
-    
-    private InMoneyTableCrud instance;
+    private OutMoneyTableCrud instance;
 
-    private InMoneyTableCrud(){}
+    private OutMoneyTableCrud(){}
 
-    public InMoneyTableCrud getInstance(){
+    public OutMoneyTableCrud getInstance(){
 
         if (instance == null){
-            instance = new InMoneyTableCrud();
+            instance = new OutMoneyTableCrud();
             return instance;
         }else {
             return instance;
@@ -32,7 +34,7 @@ public class InMoneyTableCrud {
     
         try (Connection conn = DriverManager.getConnection(URL)) {
             // Crear la consulta dentro del bloque
-            String query = "INSERT INTO inMoneyTable (Date, Name, Description, Total, Category, CategoryExpent) VALUES (?, ?, ?, ?, ?, ?)";
+            String query = "INSERT INTO outMoneyTable (Date, Name, Description, Total, Category, CategoryExpent) VALUES (?, ?, ?, ?, ?, ?)";
     
             // Crear PreparedStatement dentro del try
             try (PreparedStatement preparedStatement = conn.prepareStatement(query)) {
@@ -66,7 +68,7 @@ public class InMoneyTableCrud {
     
         try (Connection conn = DriverManager.getConnection(URL)) {
             // Crear la consulta dentro del bloque
-            String query = "SELECT * FROM inMoneyTable JOIN OUTCATEGORY ON outMoneyTable.Categoryexpend = OUTCATEGORY.outType WHERE Date = ?";
+            String query = "SELECT * FROM outMoneyTable JOIN OUTCATEGORY ON outMoneyTable.Categoryexpend = OUTCATEGORY.outType WHERE Date = ?";
     
             // Crear PreparedStatement dentro del try
             try (PreparedStatement preparedStatement = conn.prepareStatement(query)) {
@@ -113,7 +115,7 @@ public class InMoneyTableCrud {
     
         try (Connection conn = DriverManager.getConnection(URL)) {
             // Crear la consulta dentro del bloque
-            String query = "SELECT * FROM inMoneyTable JOIN OUTCATEGORY ON outMoneyTable.Categoryexpend = OUTCATEGORY.outType WHERE Categoryexpend = ? ";
+            String query = "SELECT * FROM outMoneyTable JOIN OUTCATEGORY ON outMoneyTable.Categoryexpend = OUTCATEGORY.outType WHERE Categoryexpend = ? ";
     
             // Crear PreparedStatement dentro del try
             try (PreparedStatement preparedStatement = conn.prepareStatement(query)) {
@@ -159,7 +161,7 @@ public class InMoneyTableCrud {
     
         try (Connection conn = DriverManager.getConnection(URL)) {
             // Crear la consulta dentro del bloque
-            String query = "SELECT * FROM outMoneyTable JOIN OUTCATEGORY ON inMoneyTable.Categoryexpend = OUTCATEGORY.outType WHERE Categoryexpend = ? AND Date = ? ";
+            String query = "SELECT * FROM outMoneyTable JOIN OUTCATEGORY ON outMoneyTable.Categoryexpend = OUTCATEGORY.outType WHERE Categoryexpend = ? AND Date = ? ";
     
             // Crear PreparedStatement dentro del try
             try (PreparedStatement preparedStatement = conn.prepareStatement(query)) {
@@ -197,5 +199,6 @@ public class InMoneyTableCrud {
         return resultado;
         
     }
+
 
 }

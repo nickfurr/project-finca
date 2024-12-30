@@ -5,12 +5,14 @@ public class MoveTemplate {
     private String description;
     private int valor;
     private String type;
+    private String date;
 
-    public MoveTemplate(String name, String description, int valor, String tipo) {
+    public MoveTemplate(String name, String description, int valor, String tipo, String date) {
         this.name = name;
         this.description = description;
         this.valor = valor;
         this.type = tipo;
+        this.date = date;
     }
 
     public String getName() {
@@ -28,6 +30,11 @@ public class MoveTemplate {
     public String getType() {
         return type;
     }
+
+    public String getDate() {
+        return date;
+    }
+    
 
     
 
